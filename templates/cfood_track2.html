@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Track Location</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <style>
+      #map {
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Map User Location - {{fid}}</h1>
+    <div id="map"></div>
+    <div class="d-flex justify-content-center">
+      <!-- <button class="btn btn-primary" type="button" onclick="dShareLocation()">
+        Share Location
+      </button> -->
+    </div>
+  </body>
+  <script>
+    var map = L.map("map");
+    map.setView([20.505, -0.09], 13);
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    let marker, circle, zoomed;
+
+    setInterval(async () => {
+      console.log("btn");
+      fetch(`/c_rtracklocation?fid={{fid}}`)
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          if (res.success) {
+            const lat = res.current_location[2];
+            const lng = res.current_location[3];
+            const accuracy = res.current_location[4];
+            console.log("success", res.current_location[2]);
+
+            if (marker) {
+              map.removeLayer(marker);
+              map.removeLayer(circle);
+            }
+
+            marker = L.marker([lat, lng]).addTo(map);
+            circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+
+            if (!zoomed) {
+              zoomed = map.fitBounds(circle.getBounds());
+            }
+
+            map.setView([lat, lng]);
+          } else {
+            console.log("error from server");
+          }
+        })
+        .catch((err) => {
+          console.log("error : ", err);
+        });
+    }, 5000);
+  </script>
+</html>

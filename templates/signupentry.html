@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/signupentry.css" />
+    <title>Signup Entry</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container">
+        <div class="top-header">
+          <span>Welcome to Signup<i class="fa fa-handshake"></i></span>
+          <header>Create an account to help others...!!!</header>
+        </div>
+        <form
+          action="/signupsave"
+          method="post"
+          id="signup-form"
+          class="form"
+          enctype="multipart/form-data"
+        >
+          <div class="input-main">
+            <div class="photo">
+              <label for="username">User Photo</label>
+              <input type="file" id="file" name="file" class="file" />
+            </div>
+            <div class="input-field">
+              <label for="username">Firstname</label>
+              <input
+                type="text"
+                placeholder="Firstname"
+                id="username"
+                name="fname"
+              />
+              <i class="field-icon bx bx-user"></i>
+              <i class="right fas fa-check-circle"></i>
+              <i class="right fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="username">Lastname</label>
+              <input
+                type="text"
+                placeholder="lastname"
+                id="lastname"
+                name="lname"
+              />
+              <i class="field-icon bx bx-user-pin"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="username">Phone Number</label>
+              <input
+                type="number"
+                placeholder="Phone Number"
+                id="phno"
+                name="phno"
+              />
+              <i class="field-icon bx bx-envelope"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="username">Email</label>
+              <input
+                type="email"
+                placeholder="a@gmail.com"
+                id="email"
+                name="email"
+              />
+              <i class="field-icon bx bx-envelope"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="username">Address</label>
+              <input
+                type="text"
+                placeholder="address"
+                id="address"
+                name="address"
+              />
+              <i class="field-icon fas fa-address-book"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label>Identity Proof</label>
+              <select class="input" name="pname" id="select-list">
+                <option style="display: none">Identity Proof</option>
+                <option name="Aadhar Card">Aadhar Card</option>
+                <option name="Pan Card">Pan Card</option>
+                <option name="Ration Card">Ration Card</option>
+              </select>
+              <i class="field-icon fas fa-address-card"></i>
+            </div>
+
+            <div class="input-field">
+              <label for="username">Identity Proof Number</label>
+              <input
+                type="text"
+                placeholder="Identity Proof Number"
+                id="ipn"
+                name="pnumber"
+              />
+              <i class="field-icon fas fa-address-book"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="photo">
+              <label for="username">Identity Proof Photo</label>
+              <input type="file" id="file" name="file1" class="file" />
+            </div>
+
+            <div class="input-field">
+              <label for="username">Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+              />
+              <i class="field-icon fas fa-lock"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="username">Confirm Password</label>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                id="password2"
+                name="password2"
+              />
+              <i class="field-icon fas fa-lock"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="mbutton">
+              <button input="submit" class="submit">Signup</button>
+            </div>
+            <div class="bottom">
+              <p>Already have an account?<a href="/loginentry">Log in</a></p>
+              <div class="bcontainer">
+                <div class="center">
+                  <button
+                    type="button"
+                    class="goback"
+                    onclick="location.href='/'"
+                  >
+                    Go to Welcome Page!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      let selectEl = document.getElementById("select-list");
+
+      selectEl.addEventListener("change", (e) => {
+        if (e.target.value == "Aadhar Card") {
+          document.getElementById("txt-custom").style.display = "block";
+        } else {
+          document.getElementById("txt-custom").style.display = "none";
+        }
+      });
+      selectEl.addEventListener("change", (e) => {
+        if (e.target.value == "Pan Card") {
+          document.getElementById("txt-custom1").style.display = "block";
+        } else {
+          document.getElementById("txt-custom1").style.display = "none";
+        }
+      });
+      selectEl.addEventListener("change", (e) => {
+        if (e.target.value == "Ration Card") {
+          document.getElementById("txt-custom2").style.display = "block";
+        } else {
+          document.getElementById("txt-custom2").style.display = "none";
+        }
+      });
+    </script>
+    <script src="../static/js/signup1.js"></script>
+  </body>
+</html>

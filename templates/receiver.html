@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/receiver.css" />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+    <title>Receiver Page</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <hr> -->
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>Receiver Page</u></b>
+      </div>
+
+      <!-- # INDIVIDUAL FOODS -->
+
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>Individual User Foods</u></b>
+      </div>
+
+      {% for row in data %}
+      <div class="card">
+        <div class="front">
+          <div class="details">
+            <img src="../static/upload/{{ row[5] }}" />
+            <div>
+              <h4>Food Id : {{ row[0] }}</h4>
+              <hr />
+              <h4>Food Name : {{ row[6] }}</h4>
+              <hr />
+              <h4>Food Quantity : {{ row[8] }}</h4>
+              <hr />
+              <h4>Food Type : {{ row[7] }}</h4>
+              <hr />
+              <h4>Food Date & Time : {{ row[10] }} & {{ row[12] }}</h4>
+              <hr />
+              <h4>Expiry Date & Time : {{ row[11] }} & {{ row[13] }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="details1">
+            <img src="../static/upload/{{ row[18] }}" />
+            <div>
+              <h4>User Id : {{ row[1] }}</h4>
+              <hr />
+              <h4>User Name : {{ row[2] }}</h4>
+              <hr />
+              <h4>User email : {{ row[3] }}</h4>
+              <hr />
+              <h4>User Phone Number : {{ row[4] }}</h4>
+              <hr />
+              <h4>User Address : {{ row[21] }}</h4>
+            </div>
+          </div>
+          <div class="btn">
+            <a href="/order?fid={{ row[0] }}" class="submit">Order Now!</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- # COMMUNITY FOODS -->
+
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>Community Foods</u></b>
+      </div>
+
+      {% for row in data1 %}
+      <div class="card">
+        <div class="front">
+          <div class="details">
+            <img src="../static/upload/{{ row[9] }}" />
+            <div>
+              <h4>Food Id : {{ row[0] }}</h4>
+              <hr />
+              <h4>Food Name : {{ row[5] }}</h4>
+              <hr />
+              <h4>Food Quantity : {{ row[7] }}</h4>
+              <hr />
+              <h4>Food Type : {{ row[6] }}</h4>
+              <hr />
+              <h4>Food Date & Time : {{ row[10] }} & {{ row[12] }}</h4>
+              <hr />
+              <h4>Expiry Date & Time : {{ row[11] }} & {{ row[13] }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="details1">
+            <img src="../static/upload/{{ row[16] }}" />
+            <div>
+              <h4>User Id : {{ row[15] }}</h4>
+              <hr />
+              <h4>User Name : {{ row[17] }}</h4>
+              <hr />
+              <h4>User email : {{ row[20] }}</h4>
+              <hr />
+              <h4>User Phone Number : {{ row[21] }}</h4>
+              <hr />
+              <h4>User Address : {{ row[22] }}</h4>
+            </div>
+          </div>
+          <div class="btn">
+            <a href="/corder?cfid={{ row[0] }}" class="submit">Order Now!</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="bcontainer">
+      <div class="center">
+        <input
+          type="button"
+          class="goback"
+          value="Go back!"
+          onclick="history.back()"
+        />
+      </div>
+    </div>
+  </body>
+</html>

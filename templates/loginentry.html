@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../static/css/loginentry.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Login Form || HungerFree</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container">
+        <div class="top-header">
+          <span>Welcome Back!</span>
+          <header>Login to your account</header>
+        </div>
+        <form action="/loginauth" method="get">
+          <div class="input-field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="input"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-field">
+            <label for="password2">Password</label>
+            <input
+              type="password"
+              class="input"
+              name="password2"
+              placeholder="Enter your password"
+              required
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-field">
+            <input type="submit" class="submit" />
+          </div>
+
+          <div class="bottom">
+            <div class="left">
+              <input type="checkbox" id="rememberMe" />
+              <label for="check">Remember Me</label>
+            </div>
+            <div class="right">
+              <label><a href="#">Forget password?</a></label>
+            </div>
+          </div>
+          <div class="end">
+            <small
+              >Don't have an account? <a href="/signupentry">Signup</a></small
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const rmCheck = document.getElementById("rememberMe"),
+        emailInput = document.getElementById("email");
+
+      if (localStorage.checkbox && localStorage.checkbox !== "") {
+        rmCheck.setAttribute("checked", "checked");
+        emailInput.value = localStorage.username;
+      } else {
+        rmCheck.removeAttribute("checked");
+        emailInput.value = "";
+      }
+
+      function lsRememberMe() {
+        if (rmCheck.checked && emailInput.value !== "") {
+          localStorage.username = emailInput.value;
+          localStorage.checkbox = rmCheck.value;
+        } else {
+          localStorage.username = "";
+          localStorage.checkbox = "";
+        }
+      }
+    </script>
+  </body>
+</html>

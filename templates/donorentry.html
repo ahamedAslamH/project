@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/donorentry.css" />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- J Query -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.2/flatly/bootstrap.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer="defer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"
+      integrity="sha512-igl8WEUuas9k5dtnhKqyyld6TzzRjvMqLC79jkgT3z02FvJyHAuUtyemm/P/jYSne1xwFI06ezQxEwweaiV7VA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer="defer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.4/dayjs.min.js"
+      integrity="sha512-Ot7ArUEhJDU0cwoBNNnWe487kjL5wAOsIYig8llY/l0P2TUFwgsAHVmrZMHsT8NGo+HwkjTJsNErS6QqIkBxDw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer="defer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+      integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer="defer"
+    ></script>
+    <script src="../static/js/timepicker-bs4.js" defer="defer"></script>
+    <link
+      href="https://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>DonorPage || HungerFree</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container">
+        <div class="top-header">
+          <span>Donor</span>
+          <header>Food Entry</header>
+        </div>
+        <form action="/donorsave" method="post" enctype="multipart/form-data">
+          <div class="input-main">
+            <div class="input-field">
+              <label>User Id</label>
+              <input
+                type="text"
+                class="input"
+                name="uid"
+                placeholder="User Id"
+                value="{{ id }}"
+                readonly
+              />
+              <i class="bx bx-user-check"></i>
+            </div>
+            <div class="input-field">
+              <label>Username</label>
+              <input
+                type="text"
+                class="input"
+                name="uname"
+                placeholder="Username"
+                value="{{ name }}"
+                required
+                readonly
+              />
+              <i class="bx bx-user"></i>
+            </div>
+
+            <div class="input-field">
+              <label>Email</label>
+              <input
+                type="email"
+                class="input"
+                name="email"
+                placeholder="Email"
+                value="{{ email }}"
+                required
+                readonly
+              />
+              <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-field">
+              <label>Phone Number</label>
+              <input
+                type="number"
+                class="input"
+                name="phno"
+                placeholder="Phone Number"
+                value="{{ phno }}"
+                readonly
+              />
+              <i class="bx bx-phone"></i>
+            </div>
+
+            <div class="input-field">
+              <label>Food Name</label>
+              <input
+                type="text"
+                class="input"
+                name="fdname"
+                placeholder="Food Name"
+                required
+              />
+              <i class="bx bx-food-menu"></i>
+            </div>
+
+            <div class="input-field">
+              <label>Food Type</label>
+              <select class="input" name="fdtype">
+                <option class="select-placeholder">Food Type</option>
+                <option>Veg</option>
+                <option>Non-Veg</option>
+                <option>Fastfood</option>
+              </select>
+              <i class="bx bx-bowl-rice"></i>
+            </div>
+            <div class="input-field">
+              <label>Food Quantity</label>
+              <select class="input" name="fdq" id="select-list">
+                <option style="display: none">Food Quantity</option>
+                <option value="1 member">1 member</option>
+                <option value="0-4 member">0-4 members</option>
+                <option value="4-8 member">4-8 members</option>
+                <option value="8-12 member">8-12 members</option>
+                <option value="12-16 member">12-16 members</option>
+                <option value="16-20 member">16-20 members</option>
+                <option value="custom">Custom</option>
+              </select>
+              <i class="bx bx-group"></i>
+              <input type="text" name="fd" id="txt-custom" />
+            </div>
+
+            <div class="input-field">
+              <label>Address</label>
+              <input
+                type="text"
+                class="input"
+                name="address"
+                placeholder="Address"
+                required
+              />
+              <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="sub">
+              <p>Food Photo</p>
+            </div>
+            <div class="sub">
+              <div class="filecontent">
+                <input type="file" class="photo" name="file" required />
+              </div>
+            </div>
+            <h2>Food Date and Time</h2>
+            <div class="blank">
+              <p>From</p>
+              <p>Expiry</p>
+            </div>
+            <div class="input-field">
+              <input type="date" class="input" name="frdate" required />
+              <i class="bx bx-calendar"></i>
+            </div>
+            <div class="input-field">
+              <input type="date" class="input" name="exdate" required />
+              <i class="bx bx-calendar"></i>
+            </div>
+            <div class="input-field">
+              <input
+                type="text"
+                id="from"
+                name="frtime"
+                class="input"
+                placeholder="Enter Food Prepare Time"
+              />
+              <i class="bx bx-timer"></i>
+            </div>
+            <div class="input-field">
+              <input
+                type="text"
+                id="to"
+                name="extime"
+                class="input"
+                placeholder="Enter Food Expiry Time"
+              />
+              <i class="bx bx-timer"></i>
+            </div>
+
+            <div class="mbutton">
+              <button input="submit" class="submit">Post</button>
+            </div>
+          </div>
+        </form>
+        <div class="bcontainer">
+          <div class="center">
+            <input
+              type="button"
+              class="goback"
+              value="Go back!"
+              onclick="history.back()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let selectEl = document.getElementById("select-list");
+
+      selectEl.addEventListener("change", (e) => {
+        if (e.target.value == "custom") {
+          document.getElementById("txt-custom").style.display = "block";
+        } else {
+          document.getElementById("txt-custom").style.display = "none";
+        }
+      });
+    </script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Timepicker Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        jQuery("#from,#to").timepicker({});
+      });
+    </script>
+  </body>
+</html>

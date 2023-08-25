@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/myorder.css" />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+    <title>Receiver Page</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>My Order Page</u></b>
+      </div>
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>Individual User Foods</u></b>
+      </div>
+      {% for row in data %}
+      <div class="card">
+        <div class="front">
+          <h1>Order-Id: {{ row[15] }}</h1>
+          <h4>( {{ row[16] }} )</h4>
+          <div class="details">
+            <img src="../static/upload/{{ row[5] }}" />
+            <div>
+              <h4>Food Id : {{ row[0] }}</h4>
+              <hr />
+              <h4>Food Name : {{ row[6] }}</h4>
+              <hr />
+              <h4>Food Quantity : {{ row[8] }}</h4>
+              <hr />
+              <h4>Food Type : {{ row[7] }}</h4>
+              <hr />
+              <h4>Food Date & Time : {{ row[10] }} & {{ row[12] }}</h4>
+              <hr />
+              <h4>Expiry Date & Time : {{ row[11] }} & {{ row[13] }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="details1">
+            <img src="../static/upload/{{ row[20] }}" />
+            <div>
+              <h4>User Id : {{ row[1] }}</h4>
+              <hr />
+              <h4>User Name : {{ row[2] }}</h4>
+              <hr />
+              <h4>User email : {{ row[3] }}</h4>
+              <hr />
+              <h4>User Phone Number : {{ row[4] }}</h4>
+              <hr />
+              <h4>User Address : {{ row[9] }}</h4>
+            </div>
+          </div>
+          <div class="btn">
+            <a href="/cancelorder?oid={{ row[15] }}" class="submit">Cancel</a>
+            <a href="/sharelocation1?fid={{row[0]}}" class="submit"
+              >Food Track</a
+            >
+
+            {%if(row[-1]!=None)%}
+            <div style="text-align: center">
+              <p>Your Otp:</p>
+              <input
+                type="text"
+                value="{{ row[-1] }}"
+                style="width: 20%; text-align: center"
+                disabled
+              />
+            </div>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>Community Foods</u></b>
+      </div>
+      {% for row in data1 %}
+      <div class="card">
+        <div class="front">
+          <h1>Order-Id: {{ row[15] }}</h1>
+          <h4>( {{ row[16] }} )</h4>
+          <div class="details">
+            <img src="../static/upload/{{ row[9] }}" />
+            <div>
+              <h4>Food Id : {{ row[0] }}</h4>
+              <hr />
+              <h4>Food Name : {{ row[5] }}</h4>
+              <hr />
+              <h4>Food Quantity : {{ row[7] }}</h4>
+              <hr />
+              <h4>Food Type : {{ row[6] }}</h4>
+              <hr />
+              <h4>Food Date & Time : {{ row[10] }} & {{ row[12] }}</h4>
+              <hr />
+              <h4>Expiry Date & Time : {{ row[11] }} & {{ row[13] }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="details1">
+            <img src="../static/upload/{{ row[18] }}" />
+            <div>
+              <h4>User Id : {{ row[1] }}</h4>
+              <hr />
+              <h4>User Name : {{ row[2] }}</h4>
+              <hr />
+              <h4>User email : {{ row[3] }}</h4>
+              <hr />
+              <h4>User Phone Number : {{ row[4] }}</h4>
+              <hr />
+              <h4>User Address : {{ row[8] }}</h4>
+            </div>
+          </div>
+          <div class="btn">
+            <a href="/cancelorder1?oid={{ row[15] }}" class="submit">Cancel</a>
+            <a href="/c_sharelocation1?fid={{row[0]}}" class="submit"
+              >Food Track</a
+            >
+            {%if(row[-1]!=None)%}
+            <div style="text-align: center">
+              <p>Your Otp:</p>
+              <input
+                type="text"
+                value="{{ row[-1] }}"
+                style="width: 20%; text-align: center"
+                disabled
+              />
+            </div>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="bcontainer">
+      <div class="center">
+        <input
+          type="button"
+          class="goback"
+          value="Go back!"
+          onclick="history.back()"
+        />
+      </div>
+    </div>
+  </body>
+</html>

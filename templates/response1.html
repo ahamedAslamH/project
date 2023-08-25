@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/response.css" />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+    <title>Receiver Page</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {%if msg%}
+    <div>
+      <h2>{{msg}}</h2>
+    </div>
+    {%endif%}
+    <div class="container">
+      <!-- <hr> -->
+      <div
+        style="
+          color: #fff;
+          font-size: 28px;
+          text-align: center;
+          width: 100%;
+          padding: 20px;
+        "
+      >
+        <b><u>Community Response Page</u></b>
+      </div>
+      {% for row in data %}
+      <div class="card">
+        <div class="front">
+          <div class="details">
+            <img src="../static/upload1/{{ row[20] }}" />
+            <div>
+              <h4>Food Id : {{ row[11] }}</h4>
+              <hr />
+              <h4>Food Name : {{ row[16] }}</h4>
+              <hr />
+              <h4>Food Quantity : {{ row[18] }}</h4>
+              <hr />
+              <h4>Food Type : {{ row[17] }}</h4>
+              <hr />
+              <h4>Food Date & Time : {{ row[21] }} & {{ row[23] }}</h4>
+              <hr />
+              <h4>Expiry Date & Time : {{ row[22] }} & {{ row[24] }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="details1">
+            <img src="../static/upload/{{ row[3] }}" />
+            <div>
+              <h4>User Id : {{ row[0] }}</h4>
+              <hr />
+              <h4>User Name : {{ row[1]+' '+row[2] }}</h4>
+              <hr />
+              <h4>User email : {{ row[5] }}</h4>
+              <hr />
+              <h4>User Phone Number : {{ row[4] }}</h4>
+              <hr />
+              <h4>User Address : {{ row[6] }}</h4>
+            </div>
+          </div>
+          <div class="card-btns">
+            <div>
+              <a href="/c_sharelocation?fid={{row[11]}}" class="submit"
+                >Share Location <i class="fa-solid fa-share-from-square"></i
+              ></a>
+            </div>
+            <div>
+              <form action="/otpverification1" method="post">
+                <input
+                  type="text"
+                  name="oid"
+                  readonly="true"
+                  value="{{row[26]}}"
+                  hidden
+                />
+                <input
+                  type="text"
+                  name="otp"
+                  placeholder="enter the code"
+                /><button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="bcontainer">
+      <div class="center">
+        <input
+          type="button"
+          class="goback"
+          value="Go back!"
+          onclick="history.back()"
+        />
+      </div>
+    </div>
+  </body>
+</html>

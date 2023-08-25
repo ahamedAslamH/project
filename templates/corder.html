@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../static/css/corder.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Login Form || HungerFree</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container">
+        <div class="top-header">
+          <span>Request to Donor</span>
+          <header>It's time to order delicious food</header>
+        </div>
+        <form action="/addrequest1" method="post">
+          <div class="input-field">
+            <label>Community Donor User-id</label>
+            <input
+              type="text"
+              class="input"
+              placeholder="Community Donor User Id"
+              name="cd_did"
+              value="{{ cd_cuid }}"
+              readonly
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-field">
+            <label>Community Donor Food-id</label>
+            <input
+              type="text"
+              class="input"
+              placeholder="Community Donor Food Id"
+              name="cd_fid"
+              value="{{ d_cfid }}"
+              readonly
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-field">
+            <label>Receiver User-id</label>
+            <input
+              type="text"
+              class="input"
+              placeholder="Community Reciever User Id"
+              name="r_uid"
+              value="{{ r_uid }}"
+              readonly
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-field">
+            <input type="submit" class="submit" value="Request" />
+          </div>
+        </form>
+        <div class="bcontainer">
+          <div class="center">
+            <input
+              type="button"
+              class="goback"
+              value="Go back!"
+              onclick="history.back()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

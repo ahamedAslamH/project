@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="shortcut icon" type="x-icon" href="../static/image/fw.png" />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/communitysignup.css" />
+    <title>Community Entry</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container">
+        <div class="top-header">
+          <span>Welcome to Signup <i class="fa fa-handshake"></i></span>
+          <header>create an account to help others...!!!</header>
+        </div>
+        <form
+          action="/communitysignupsave"
+          method="post"
+          id="signup-form1"
+          class="form"
+          enctype="multipart/form-data"
+        >
+          <div class="input-main">
+            <div class="photo">
+              <label for="orgname">Community User Photo</label>
+              <input type="file" id="file" name="file" class="file" required />
+            </div>
+            <div class="input-field">
+              <label for="orgname">Organizer Name</label>
+              <input
+                type="text"
+                placeholder="Organizer Name"
+                id="orgname"
+                name="orgname"
+              />
+              <i class="field-icon bx bx-user"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="orgname">Community Name</label>
+              <input
+                type="text"
+                placeholder="Community Name"
+                id="comname"
+                name="comname"
+              />
+              <i class="field-icon bx bx-user-pin"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label>Type of Community</label>
+              <select class="input" name="ctype" required>
+                <option style="display: none">Type of Community</option>
+                <option name="Community Hall">Community Hall</option>
+                <option name="Marriage Hall">Marriage Hall</option>
+                <option name="Home Function">Home Function</option>
+              </select>
+              <i class="field-icon fas fa-address-card"></i>
+            </div>
+            <div class="input-field">
+              <label for="orgname">Email</label>
+              <input
+                type="email"
+                placeholder="abcd@gmail.com"
+                id="cemail"
+                name="cemail"
+              />
+              <i class="field-icon bx bx-user-pin"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="orgname">Phone Number</label>
+              <input
+                type="number"
+                placeholder="Phone Number"
+                id="cphno"
+                name="cphno"
+              />
+              <i class="field-icon bx bx-envelope"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="orgname">Address</label>
+              <input
+                type="text"
+                placeholder="address"
+                id="caddress"
+                name="caddress"
+              />
+              <i class="field-icon fas fa-address-book"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <!-- <div class="input-field"></div>
+            <div class="input-field1"></div> -->
+            <div class="photo">
+              <label for="orgname">Register Certification Photo</label>
+              <input type="file" id="file" name="file1" class="file" required />
+            </div>
+            <div class="input-field">
+              <label for="orgname">Register Certification Number</label>
+              <input
+                type="text"
+                placeholder="Register Certification Number"
+                id="regcertnumber"
+                name="regcertnumber"
+              />
+              <i class="field-icon fas fa-address-book"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="input-field">
+              <label for="orgname">Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+              />
+              <i class="field-icon fas fa-lock"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="input-field">
+              <label for="orgname">Confirm Password</label>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                id="password2"
+                name="password2"
+              />
+              <i class="field-icon fas fa-lock"></i>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="mbutton">
+              <button input="submit" class="submit">Signup</button>
+            </div>
+            <div class="bottom">
+              <p>Already have an account?<a href="/loginentry">Log in</a></p>
+              <div class="bcontainer">
+                <div class="center">
+                  <button
+                    type="button"
+                    class="goback"
+                    onclick="location.href='/'"
+                  >
+                    Go to Welcome Page!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../static/js/community.js"></script>
+  </body>
+</html>
