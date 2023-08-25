@@ -1,0 +1,120 @@
+:root {
+  --theme-color-1: #0084ff;
+  --theme-color-2: #1c53df;
+  --bg-color: #000422;
+  --white-shade-1: #ffffff;
+  --white-shade-2: #d0d0d0;
+  --white-rgba: rgba(255, 255, 255, 0.12);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-image: url("../image/food.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  perspective: 800px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 30px;
+}
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+}
+.details1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  padding: 22px;
+}
+h4 {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  margin: 10px 10px 10px 10px;
+}
+.card {
+  height: 400px;
+  width: 700px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.front,
+.back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  width: 100%;
+  border-radius: 15px;
+  background-color: var(--white-rgba);
+  border: 2px solid var(--white-rgba);
+  backdrop-filter: blur(8px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: 1s;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.front img {
+  height: 280px;
+  width: 280px;
+}
+.back img {
+  height: 280px;
+  width: 280px;
+}
+.front {
+  justify-content: space-around;
+}
+.back {
+  justify-content: space-around;
+  transform: rotateY(180deg);
+}
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+.card:hover .front {
+  transform: rotateY(-180deg);
+}
+.btn .submit {
+  padding: 10px;
+  border-radius: 30px;
+}
+.goback {
+  padding: 5px;
+}
+/* input {
+  margin: 20px;
+} */
+.bcontainer {
+  height: 50px;
+  position: relative;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
